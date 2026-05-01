@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entrepreneur Development Foundation</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#020617;
+  --panel:#0f172a;
+  --border:rgba(255,255,255,.08);
+  --text:#f8fafc;
+  --muted:#94a3b8;
+  --primary:#3b82f6;
+  --secondary:#22c55e;
+}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+  scroll-behavior:smooth;
+}
+body{
+  background:radial-gradient(circle at top left,#0f172a 0%,#020617 45%,#01040b 100%);
+  color:var(--text);
+  overflow-x:hidden;
+}
+body::before,
+body::after{
+  content:'';
+  position:fixed;
+  width:480px;
+  height:480px;
+  border-radius:50%;
+  filter:blur(140px);
+  opacity:.12;
+  z-index:-1;
+}
+body::before{background:#2563eb;top:-160px;left:-160px;}
+body::after{background:#16a34a;bottom:-160px;right:-160px;}
+
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+  padding:18px 42px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(2,6,23,.82);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);
+}
+.brand{
+  font-weight:800;
+  color:#60a5fa;
+}
+.nav-links a{
+  text-decoration:none;
+  color:var(--text);
+  margin-left:22px;
+  font-weight:500;
+}
+
+header{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:150px 20px 70px;
+}
+.hero{
+  max-width:1100px;
+}
+
+.logo{
+  width:220px;
+  margin:0 auto 32px;
+}
+.logo img{
+  width:100%;
+  object-fit:contain;
+  filter:drop-shadow(0 12px 28px rgba(0,0,0,.28));
+}
+
+.hero h1{
+  font-size:4.35rem;
+  font-weight:900;
+  line-height:1.03;
+  margin-bottom:24px;
+}
+.hero p{
+  max-width:850px;
+  margin:auto;
+  color:var(--muted);
+  font-size:1.12rem;
+  line-height:1.8;
+}
+.cta{
+  display:inline-block;
+  margin-top:36px;
+  padding:18px 42px;
+  border-radius:16px;
+  background:linear-gradient(135deg,#2563eb,#1d4ed8);
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+  box-shadow:0 18px 40px rgba(37,99,235,.28);
+}
+
+.container{
+  max-width:1280px;
+  margin:auto;
+  padding:120px 20px;
+}
+.section-title{
+  text-align:center;
+  font-size:2.85rem;
+  margin-bottom:18px;
+  font-weight:800;
+}
+.section-sub{
+  text-align:center;
+  max-width:860px;
+  margin:0 auto 60px;
+  color:var(--muted);
+  line-height:1.8;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+  gap:28px;
+}
+.card{
+  background:rgba(255,255,255,.03);
+  border:1px solid var(--border);
+  backdrop-filter:blur(18px);
+  border-radius:28px;
+  padding:34px;
+  box-shadow:0 20px 45px rgba(0,0,0,.24);
+}
+.card h3{
+  color:#60a5fa;
+  margin-bottom:14px;
+}
+.card p{
+  color:var(--muted);
+  line-height:1.7;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:22px;
+  margin-top:55px;
+}
+.stat{
+  padding:32px;
+  border-radius:26px;
+  background:linear-gradient(135deg,#1d4ed8,#2563eb);
+  text-align:center;
+}
+.stat h2{
+  font-size:2.55rem;
+}
+
+.founder-bio{
+  background:rgba(255,255,255,.03);
+  border:1px solid var(--border);
+  padding:48px;
+  border-radius:30px;
+}
+.founder-name{
+  font-size:3rem;
+  font-weight:900;
+  color:#60a5fa;
+  margin-bottom:18px;
+}
+
+.payment-box{
+  text-align:center;
+  padding:70px 60px;
+  border-radius:34px;
+  background:linear-gradient(135deg,#111827,#0f172a,#020617);
+  border:1px solid var(--border);
+  box-shadow:0 30px 70px rgba(0,0,0,.38);
+}
+.payment-price{
+  font-size:4.2rem;
+  font-weight:900;
+  color:#22c55e;
+  margin:24px 0 10px;
+}
+
+.payment-qr{
+  width:220px;
+  max-width:90%;
+  margin:28px auto 12px;
+  display:block;
+  border-radius:24px;
+  background:#fff;
+  padding:12px;
+  box-shadow:0 20px 40px rgba(0,0,0,.30);
+}
+
+.scan-note{
+  color:var(--muted);
+  font-size:.95rem;
+  margin-bottom:12px;
+}
+
+.pay-btn{
+  margin-top:18px;
+  padding:18px 42px;
+  border:none;
+  border-radius:16px;
+  background:linear-gradient(135deg,#4285F4,#2563eb);
+  color:#fff;
+  font-weight:800;
+  cursor:pointer;
+}
+.secure{
+  margin-top:16px;
+  color:#86efac;
+  font-weight:700;
+}
+
+.book-now-float{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:999;
+  background:linear-gradient(135deg,#16a34a,#22c55e);
+  color:#fff;
+  padding:16px 24px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:800;
+}
+
+footer{
+  background:#020617;
+  border-top:1px solid var(--border);
+  text-align:center;
+  padding:36px;
+  color:var(--muted);
+}
+
+@media(max-width:768px){
+  .hero h1{font-size:3rem;}
+  .nav-links{display:none;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">Entrepreneur Development Foundation</div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#founder">Founder</a>
+    <a href="#process">Process</a>
+    <a href="#payment">Register</a>
+  </div>
+</nav>
+
+<header>
+  <div class="hero">
+    <div class="logo">
+      <img src="logo.png" alt="EDF Logo">
+    </div>
+
+    <h1>Strategic Growth Support For Ambitious Entrepreneurs</h1>
+    <p>
+      Entrepreneur Development Foundation helps entrepreneurs and business owners overcome
+      growth bottlenecks, improve operational clarity, strengthen strategic decision-making,
+      and implement scalable systems for long-term business success.
+    </p>
+
+    <a href="#payment" class="cta">Book Consultation</a>
+  </div>
+</header>
+
+<section class="container" id="services">
+  <h2 class="section-title">Comprehensive Business Development Services</h2>
+  <p class="section-sub">
+    Our consultation framework is designed to help founders identify growth barriers,
+    optimize key business systems, and implement structured strategies for sustainable scaling.
+  </p>
+
+  <div class="grid">
+    <div class="card"><h3>Growth Strategy Planning</h3><p>Custom strategic frameworks aligned with your business objectives.</p></div>
+    <div class="card"><h3>Marketing Advisory</h3><p>Improve positioning, branding, and customer acquisition.</p></div>
+    <div class="card"><h3>Sales Optimization</h3><p>Enhance conversion systems and maximize revenue.</p></div>
+    <div class="card"><h3>Operational Scaling</h3><p>Develop systems for sustainable expansion.</p></div>
+    <div class="card"><h3>Business Diagnosis</h3><p>Identify hidden operational bottlenecks limiting growth.</p></div>
+    <div class="card"><h3>Execution Roadmaps</h3><p>Receive actionable implementation plans.</p></div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><h2>500+</h2><p>Consultation Goal</p></div>
+    <div class="stat"><h2>95%</h2><p>Satisfaction Target</p></div>
+    <div class="stat"><h2>₹20</h2><p>Registration Fee</p></div>
+  </div>
+</section>
+
+<section class="container" id="founder">
+  <h2 class="section-title">Meet The Founder</h2>
+  <div class="founder-bio">
+    <div class="founder-name">Heet Patel</div>
+    <p>
+      Heet Patel established Entrepreneur Development Foundation with the vision of making
+      strategic business guidance accessible to entrepreneurs and small business owners.
+    </p>
+  </div>
+</section>
+
+<section class="container" id="process">
+  <h2 class="section-title">Our Consultation Process</h2>
+  <div class="grid">
+    <div class="card"><h3>1. Register</h3><p>Complete your ₹20 registration.</p></div>
+    <div class="card"><h3>2. Assessment</h3><p>Share your business goals and challenges.</p></div>
+    <div class="card"><h3>3. Consultation</h3><p>Discuss your situation with our team.</p></div>
+    <div class="card"><h3>4. Growth Roadmap</h3><p>Receive structured strategic guidance.</p></div>
+  </div>
+</section>
+
+<section class="container" id="payment">
+  <div class="payment-box">
+    <h2 class="section-title">₹20 For Registration</h2>
+    <p class="section-sub" style="margin-bottom:0;">
+      Reserve your consultation slot and gain access to personalized business growth guidance.
+    </p>
+
+    <div class="payment-price">₹20</div>
+
+    <img src="qr-code.jpeg" alt="UPI QR Code" class="payment-qr">
+
+    <p class="scan-note">Scan QR Code with Any UPI App</p>
+
+    <button class="pay-btn">Pay with UPI</button>
+
+    <div class="secure">🔒 100% Secure Payment</div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Entrepreneur Development Foundation — Empowering Entrepreneurs.
+</footer>
+
+<a href="#payment" class="book-now-float">Book Now</a>
+
+</body>
+</html>
